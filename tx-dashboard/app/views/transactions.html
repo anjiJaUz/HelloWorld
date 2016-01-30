@@ -1,0 +1,184 @@
+<div class="page-content">
+  <h4 class="padT-10  padB-10">Transactions for <select>
+    <option>Today</option>
+    <option>Yesterday</option>
+    <option>This week</option>
+    <option>Last week</option>
+    <option>This month</option>
+    <option>Last month</option>
+    <option>This quarter</option>
+    <option>Last quarter</option>
+    <option>This year</option>
+    <option>Last year</option>
+  </select></h4>
+
+  <uib-tabset>
+    <uib-tab heading="Summary">
+      <div class="clearfix row padT-30">
+        <div class="col-sm-4">
+          <tx-pie-chart data="amount"
+                        title="Amount"></tx-pie-chart>
+          <tx-pie-chart data="count"
+                        title="Count"></tx-pie-chart>
+          <tx-pie-chart data="alertRate"
+                        title="Alert Rate"></tx-pie-chart>
+        </div>
+        <div class="col-sm-8">
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Conf type</th>
+                  <th>Conf name</th>
+                  <th class="text-right">Tx Count</th>
+                  <th class="text-right">Tx Amount</th>
+                  <th class="text-right">Alerts Count</th>
+                  <th class="text-right">Alerts Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="row in data">
+                  <td ng-repeat="cell in row track by $index"
+                      ng-class="{'text-right': rightCols[$index]}">
+                    <span ng-if="rightCols[$index]">{{cell | spacedNumber:2}}</span>
+                    <span ng-if="!rightCols[$index]">{{cell}}</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </uib-tab>
+    <uib-tab heading="Details">
+      <form action="" class="form-inline padT-30">
+        <!-- <div class="form-group">
+          <label for="Period">Period:</label>
+          <select name="Period"
+                  id="Period"
+                  class="form-control"
+                  ng-options="item.days as item.label for item in periodOptions"
+                  ng-model="period"
+                  ng-change="updateData(period)"></select>
+        </div> -->
+        <div class="form-group">
+          <label for="Group">Group by:</label>
+          <select name="Group" id="Group" class="form-control">
+            <option value="">Day</option>
+            <option value="">Week</option>
+            <option value="">Month</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="Show">Show:</label>
+          <select name="Show"
+                  id="Show"
+                  class="form-control"
+                  ng-options="item for item in showOptions"
+                  ng-model="show"
+                  ng-change="updateSettings(show, type)"></select>
+        </div>
+        <div class="form-group">
+          <label for="Display">Display as:</label>
+          <select name="Display"
+                  id="Display"
+                  class="form-control"
+                  ng-options="item.type as item.label for item in typeOptions"
+                  ng-model="type"
+                  ng-change="updateSettings(show, type)"></select>
+        </div>
+      </form>
+      <div class="clearfix padT-30">
+        <tx-line-bar-chart data="daysData"
+                           settings="settings"></tx-line-bar-chart>
+        <div class="col-sm-3">
+          <div class="form-group">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox"
+                       ng-checked="isTXFLT()"
+                       ng-click="toggleTXFLT()"> TXFLT
+              </label>
+
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox"
+                         ng-checked="isChecked('OPE_CREDIT')"
+                         ng-click="toggle('OPE_CREDIT')"> OPE_CREDIT
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox"
+                         ng-checked="isChecked('OPE_DEBIT')"
+                         ng-click="toggle('OPE_DEBIT')"> OPE_DEBIT
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox"
+                         ng-checked="isChecked('SPTR_CREDIT')"
+                         ng-click="toggle('SPTR_CREDIT')"> SPTR_CREDIT
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox"
+                         ng-checked="isChecked('SPTR_DEBIT')"
+                         ng-click="toggle('SPTR_DEBIT')"> SPTR_DEBIT
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox"
+                         ng-checked="isChecked('STC_CREDIT')"
+                         ng-click="toggle('STC_CREDIT')"> STC_CREDIT
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox"
+                         ng-checked="isChecked('STC_DEBIT')"
+                         ng-click="toggle('STC_DEBIT')"> STC_DEBIT
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox"
+                       ng-checked="isChecked('Batch_Alert')"
+                       ng-click="toggle('Batch_Alert')"> TXFLT
+              </label>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox"
+                         ng-checked="isChecked('Batch_Alert')"
+                         ng-click="toggle('Batch_Alert')"> Batch_Alert
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox"
+                       ng-checked="isChecked('Online BHV Alerts')"
+                       ng-click="toggle('Online BHV Alerts')"> Behavioral
+              </label>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox"
+                         ng-checked="isChecked('Online BHV Alerts')"
+                         ng-click="toggle('Online BHV Alerts')"> Online BHV Alerts
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </uib-tab>
+  </uib-tabset>
+
+</div>

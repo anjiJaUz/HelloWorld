@@ -1,0 +1,57 @@
+@mixin pad($maxT:100,$maxR:100,$maxB:100,$maxL:100){
+  @for $i from 0 through $maxT {
+    .padT-#{$i} {
+      padding-top: #{$i}px;
+    }
+  }
+  @for $i from 0 through $maxR {
+    .padR-#{$i} {
+      padding-right: #{$i}px;
+    }
+  }
+  @for $i from 0 through $maxB {
+    .padB-#{$i} {
+      padding-bottom: #{$i}px;
+    }
+  }
+  @for $i from 0 through $maxL {
+    .padL-#{$i} {
+      padding-left: #{$i}px;
+    }
+  }
+}
+
+@mixin mar($maxT:100,$maxR:100,$maxB:100,$maxL:100){
+  @for $i from 0 through $maxT {
+    .marT-#{$i} {
+      margin-top: #{$i}px;
+    }
+  }
+  @for $i from 0 through $maxR {
+    .marR-#{$i} {
+      margin-right: #{$i}px;
+    }
+  }
+  @for $i from 0 through $maxB {
+    .marB-#{$i} {
+      margin-bottom: #{$i}px;
+    }
+  }
+  @for $i from 0 through $maxL {
+    .marL-#{$i} {
+      margin-left: #{$i}px;
+    }
+  }
+}
+
+
+@mixin screen-mobile () {
+  @media (max-width: 600px) {
+    @content;
+  }
+}
+@mixin screen-desktop () {
+  @media (min-width: 600px) {
+    @content;
+  }
+}

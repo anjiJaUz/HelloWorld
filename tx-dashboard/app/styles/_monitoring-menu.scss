@@ -1,0 +1,28 @@
+.monitoring-menu {
+  margin: 20px 10px;
+  padding: 0;
+  list-style: none;
+
+  .monitoring-menu__link {
+    color: $gray;
+    text-decoration: none;
+    padding: 2px 10px;
+    margin: 1px;
+    display: block;
+
+    .point {
+      margin-right: 3px;
+      font-size: .7em;
+    }
+
+    &.active {
+      background: $brand-info;
+      color: $white;
+      border-radius: 4px;
+    }
+    &:hover {
+      background: darken($blue-dark,1);
+    }
+  }
+}
+

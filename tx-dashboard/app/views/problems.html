@@ -1,0 +1,172 @@
+<div class="page-content">
+  <h4 class="padT-10  padB-10">Problems for <select>
+    <option>Today</option>
+    <option>Yesterday</option>
+    <option>This week</option>
+    <option>Last week</option>
+    <option>This month</option>
+    <option>Last month</option>
+    <option>This quarter</option>
+    <option>Last quarter</option>
+    <option>This year</option>
+    <option>Last year</option>
+  </select></h4>
+  <uib-tabset>
+    <uib-tab heading="Summary">
+      <div class="clearfix row padT-30">
+        <div class="col-sm-4">
+          <tx-pie-chart data="count"
+                        title="Count"></tx-pie-chart>
+        </div>
+        <div class="col-sm-8">
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Error Group Type</th>
+                  <th>Error Group</th>
+                  <th>Error Type</th>
+                  <th class="text-right">Severity Class</th>
+                  <th class="text-right">Total Count</th>
+                  <th class="text-right">Err Count</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="row in data">
+                  <td ng-repeat="cell in row track by $index"
+                      ng-class="{'text-right': rightCols[$index]}">
+                    <span ng-if="rightCols[$index]">{{cell | spacedNumber:2}}</span>
+                    <span ng-if="!rightCols[$index]">{{cell}}</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </uib-tab>
+    <uib-tab heading="Details">
+      <form action="" class="form-inline padT-30">
+        <!-- <div class="form-group">
+          <label for="Period">Period:</label>
+          <select name="Period"
+                  id="Period"
+                  class="form-control"
+                  ng-options="item.days as item.label for item in periodOptions"
+                  ng-model="period"
+                  ng-change="updateData(period)"></select>
+        </div> -->
+        <div class="form-group">
+          <label for="Group">Group by:</label>
+          <select name="Group" id="Group" class="form-control">
+            <option value="">Day</option>
+            <option value="">Week</option>
+            <option value="">Month</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="Display">Display as:</label>
+          <select name="Display"
+                  id="Display"
+                  class="form-control"
+                  ng-options="item.type as item.label for item in typeOptions"
+                  ng-model="type"
+                  ng-change="updateSettings(type)"></select>
+        </div>
+      </form>
+        <div class="clearfix padT-30">
+          <tx-line-bar-chart data="daysData"
+                             settings="settings"></tx-line-bar-chart>
+          <div class="col-sm-3">
+            <div ng-bind-html="problemsDetailsCheckboxXml | xslt:problemsDetailsCheckboxXslt | sanitize" compile-template></div>
+          </div>
+
+<!--
+          <div class="col-sm-3">
+            <div class="form-group">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox"
+                         ng-checked="isGroupChecked('General')"
+                         ng-click="toggleGroup('General')"> General
+                </label>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox"
+                           ng-checked="isGroupChecked('SYSTEM')"
+                           ng-click="toggleGroup('SYSTEM')"> SYSTEM
+                  </label>
+                  <div class="checkbox"><label>
+                    <input type="checkbox"
+                           ng-checked="isChecked('General SYSTEM Disk space')"
+                           ng-click="toggle('General SYSTEM Disk space')"> Disk space
+                  </label></div>
+                  <div class="checkbox"><label>
+                    <input type="checkbox"
+                           ng-checked="isChecked('General SYSTEM Unexpected shutdown')"
+                           ng-click="toggle('General SYSTEM Unexpected shutdown')"> Unexpected shutdown
+                  </label></div>
+                  <div class="checkbox"><label>
+                    <input type="checkbox"
+                           ng-checked="isChecked('General SYSTEM Results do not match expected')"
+                           ng-click="toggle('General SYSTEM Results do not match expected')"> Results do not match expected
+                  </label></div>
+                  <div class="checkbox"><label>
+                    <input type="checkbox"
+                           ng-checked="isChecked('General SYSTEM Service not started')"
+                           ng-click="toggle('General SYSTEM Service not started')"> Service not started
+                  </label></div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox"
+                         ng-checked="isGroupChecked('Config')"
+                         ng-click="toggleGroup('Config')"> Config
+                </label>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox"
+                           ng-checked="isGroupChecked('OPE_DEBIT')"
+                           ng-click="toggleGroup('OPE_DEBIT')"> OPE_DEBIT
+                  </label>
+                  <div class="checkbox"><label>
+                    <input type="checkbox"
+                           ng-checked="isChecked('Config OPE_DEBIT Prosessing failure')"
+                           ng-click="toggle('Config OPE_DEBIT Prosessing failure')"> Prosessing failure
+                  </label></div>
+                  <div class="checkbox"><label>
+                    <input type="checkbox"
+                           ng-checked="isChecked('Config OPE_DEBIT Timeout')"
+                           ng-click="toggle('Config OPE_DEBIT Timeout')"> Timeout
+                  </label></div>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox"
+                           ng-checked="isGroupChecked('OPE_CREDIT')"
+                           ng-click="toggleGroup('OPE_CREDIT')"> OPE_CREDIT
+                  </label>
+                  <div class="checkbox"><label>
+                    <input type="checkbox"
+                           ng-checked="isChecked('Config OPE_CREDIT Prosessing failure')"
+                           ng-click="toggle('Config OPE_CREDIT Prosessing failure')"> Prosessing failure
+                  </label></div>
+                  <div class="checkbox"><label>
+                    <input type="checkbox"
+                           ng-checked="isChecked('Config OPE_CREDIT Timeout')"
+                           ng-click="toggle('Config OPE_CREDIT Timeout')"> Timeout
+                  </label></div>
+                </div>
+              </div>
+            </div>
+          </div>
+-->
+        </div>
+      </div>
+    </uib-tab>
+  </uib-tabset>
+</div>
+

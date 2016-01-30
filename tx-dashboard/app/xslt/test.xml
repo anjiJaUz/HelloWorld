@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="test.xsl"?>
+<root>
+<record>
+<dt>2015-01-01 00:00:00.000</dt>
+<ErrorGroupType>Resources</ErrorGroupType>
+<ErrorGroup>DataBaseSize</ErrorGroup>
+<ErrorType>CCR</ErrorType>
+<SeverityClass>3</SeverityClass>
+<TotalCount>281</TotalCount>
+<ErrorCount>0</ErrorCount>
+</record>
+<record>
+<dt>2015-01-01 00:00:00.000</dt>
+<ErrorGroupType>Resources</ErrorGroupType>
+<ErrorGroup>DataBaseSize</ErrorGroup>
+<ErrorType>namechecking</ErrorType>
+<SeverityClass>3</SeverityClass>
+<TotalCount>281</TotalCount>
+<ErrorCount>0</ErrorCount>
+</record>
+<record>
+<dt>2015-01-01 00:00:00.000</dt>
+<ErrorGroupType>Resources</ErrorGroupType>
+<ErrorGroup>DataBaseSize</ErrorGroup>
+<ErrorType>PLIB</ErrorType>
+<SeverityClass>3</SeverityClass>
+<TotalCount>281</TotalCount>
+<ErrorCount>0</ErrorCount>
+</record>
+<record>
+<dt>2015-01-01 00:00:00.000</dt>
+<ErrorGroupType>Resources</ErrorGroupType>
+<ErrorGroup>DiskSpace</ErrorGroup>
+<ErrorType>diskC</ErrorType>
+<SeverityClass>3</SeverityClass>
+<TotalCount>24</TotalCount>
+<ErrorCount>0</ErrorCount>
+</record>
+<record>
+<dt>2015-01-01 00:00:00.000</dt>
+<ErrorGroupType>Resources</ErrorGroupType>
+<ErrorGroup>DiskSpace</ErrorGroup>
+<ErrorType>diskD</ErrorType>
+<SeverityClass>3</SeverityClass>
+<TotalCount>24</TotalCount>
+<ErrorCount>11</ErrorCount>
+</record>
+<record>
+<dt>2015-01-01 00:00:00.000</dt>
+<ErrorGroupType>Services</ErrorGroupType>
+<ErrorGroup>MongoDb</ErrorGroup>
+<ErrorType>processing missing</ErrorType>
+<SeverityClass>3</SeverityClass>
+<TotalCount>1</TotalCount>
+<ErrorCount>0</ErrorCount>
+</record>
+<record>
+<dt>2015-01-01 00:00:00.000</dt>
+<ErrorGroupType>Services</ErrorGroupType>
+<ErrorGroup>MongoDb</ErrorGroup>
+<ErrorType>failed</ErrorType>
+<SeverityClass>3</SeverityClass>
+<TotalCount>281</TotalCount>
+<ErrorCount>0</ErrorCount>
+</record>
+<record>
+<dt>2015-01-01 00:00:00.000</dt>
+<ErrorGroupType>Services</ErrorGroupType>
+<ErrorGroup>Namechecking</ErrorGroup>
+<ErrorType>timeout</ErrorType>
+<SeverityClass>3</SeverityClass>
+<TotalCount>48</TotalCount>
+<ErrorCount>0</ErrorCount>
+</record>
+<record>
+<dt>2015-01-01 00:00:00.000</dt>
+<ErrorGroupType>Services</ErrorGroupType>
+<ErrorGroup>Namechecking</ErrorGroup>
+<ErrorType>failed</ErrorType>
+<SeverityClass>3</SeverityClass>
+<TotalCount>1</TotalCount>
+<ErrorCount>0</ErrorCount>
+</record>
+<record>
+<dt>2015-01-01 00:00:00.000</dt>
+<ErrorGroupType>Services</ErrorGroupType>
+<ErrorGroup>online__OPE_CREDIT</ErrorGroup>
+<ErrorType>processing_failed</ErrorType>
+<SeverityClass>3</SeverityClass>
+<TotalCount>3</TotalCount>
+<ErrorCount>0</ErrorCount>
+</record>
+<record>
+<dt>2015-01-01 00:00:00.000</dt>
+<ErrorGroupType>Services</ErrorGroupType>
+<ErrorGroup>online__OPE_CREDIT</ErrorGroup>
+<ErrorType>processing_failed_soap  </ErrorType>
+<SeverityClass>3</SeverityClass>
+<TotalCount>3</TotalCount>
+<ErrorCount>0</ErrorCount>
+</record>
+<record>
+<dt>2015-01-01 00:00:00.000</dt>
+<ErrorGroupType>Services</ErrorGroupType>
+<ErrorGroup>TXM</ErrorGroup>
+<ErrorType>test_faield</ErrorType>
+<SeverityClass>3</SeverityClass>
+<TotalCount>281</TotalCount>
+<ErrorCount>0</ErrorCount>
+</record>
+</root>

@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/c3/c3.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+  </head>
+  <body ng-app="txDashboardApp">
+
+    <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <i class="glyphicon glyphicon-menu-hamburger nav-bar__close hidden-desktop"></i>
+    <aside 
+			class="nav-bar"
+           ng-controller="NavCtrl"
+           ng-show="isVisible"
+           ng-cloak>
+
+      <img src="images/logo-cut.jpg" width="100%"/>
+      <div class="nav-bar__logo">
+        <h3 class="nav-bar__logo__logo">App name</h3>
+        <h4 class="nav-bar__logo__description">Instance name</h4>
+      </div>
+      <ul class="monitoring-menu">
+        <li><a href="#/state" class="monitoring-menu__link">
+          <i class="point label-danger"></i> Current state
+        </a></li>
+        <li><a href="#/state" class="monitoring-menu__link">
+          <i class="point label-success"></i> State {{yesterday | date:'mediumDate'}}
+        </a></li>
+        <li><a href="#/state" class="monitoring-menu__link">
+          <i class="point label-success"></i> State {{twoDaysBefore | date:'mediumDate'}}
+        </a></li>
+      </ul>
+      
+      <menu class="base-menu">
+        <li ng-repeat="item in menuItems">
+          <a class="base-menu__link"
+             ng-href="{{item.url}}"
+             ng-class="{active: isActive(item.url)}"><i class="glyphicon {{item.icon}}"></i> {{item.name}}</a>
+        </li>
+      </menu>
+      <a class="btn btn-default m-logout" href="#/">Logout</a>
+      <div class="version">Version <span ng-include="'views/version.html'"></span></div>
+    </aside>
+
+    <div ng-view=""></div>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+     <script>
+
+       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-XXXXX-X');
+       ga('send', 'pageview');
+    </script>
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/d3/d3.js"></script>
+    <script src="bower_components/c3/c3.js"></script>
+    <script src="bower_components/angular-xslt/src/ng-xslt.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/state.js"></script>
+        <script src="scripts/controllers/entities.js"></script>
+        <script src="scripts/controllers/errors.js"></script>
+        <script src="scripts/controllers/problems.js"></script>
+        <script src="scripts/controllers/transactions.js"></script>
+        <script src="scripts/controllers/nav.js"></script>
+        <script src="scripts/directives/tx-pie-chart.js"></script>
+        <script src="scripts/directives/tx-line-bar-chart.js"></script>
+        <script src="scripts/services/render-watcher.js"></script>
+        <script src="scripts/services/colors-provider.js"></script>
+        <script src="scripts/filters/spaced-number.js"></script>
+        <!-- endbuild -->
+</body>
+</html>

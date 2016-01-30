@@ -1,0 +1,14 @@
+<div class="clearfix m-col-by-center">
+  <div class="col-sm-8">
+    <figure class="figure pie-chart">
+      <figcaption class="figure__caption">{{title}}</figcaption>
+    </figure>
+  </div>
+  <div class="col-sm-4">
+    <div ng-repeat="child in newRoot.children">
+         <i class="point" ng-style="{'background-color': colors[child.name]}"></i> {{child.name}}
+         <!-- <div ng-repeat="cchild in child.children"
+              ng-style="{color: colors[cchild.name]}">{{cchild.name}}</div> -->
+    </div>
+  </div>
+</div>
