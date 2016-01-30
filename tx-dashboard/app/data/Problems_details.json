@@ -1,0 +1,12 @@
+[{"dt":"2015-01-01 00:00:00.000","ErrorGroupType":"Resources","ErrorGroup":"DataBaseSize","ErrorType":"CCR","SeverityClass":3,"TotalCount":281,"ErrorCount":1},
+{"dt":"2015-01-01 00:00:00.000","ErrorGroupType":"Resources","ErrorGroup":"DataBaseSize","ErrorType":"namechecking","SeverityClass":3,"TotalCount":281,"ErrorCount":2},
+{"dt":"2015-01-01 00:00:00.000","ErrorGroupType":"Resources","ErrorGroup":"DataBaseSize","ErrorType":"PLIB","SeverityClass":3,"TotalCount":281,"ErrorCount":3},
+{"dt":"2015-01-01 00:00:00.000","ErrorGroupType":"Resources","ErrorGroup":"DiskSpace","ErrorType":"diskC","SeverityClass":3,"TotalCount":24,"ErrorCount":4},
+{"dt":"2015-01-01 00:00:00.000","ErrorGroupType":"Resources","ErrorGroup":"DiskSpace","ErrorType":"diskD","SeverityClass":3,"TotalCount":24,"ErrorCount":11},
+{"dt":"2015-01-01 00:00:00.000","ErrorGroupType":"Services","ErrorGroup":"MongoDb","ErrorType":"processing missing","SeverityClass":3,"TotalCount":1,"ErrorCount":6},
+{"dt":"2015-01-01 00:00:00.000","ErrorGroupType":"Services","ErrorGroup":"MongoDb","ErrorType":"failed","SeverityClass":3,"TotalCount":281,"ErrorCount":7},
+{"dt":"2015-01-01 00:00:00.000","ErrorGroupType":"Services","ErrorGroup":"Namechecking","ErrorType":"timeout","SeverityClass":3,"TotalCount":48,"ErrorCount":8},
+{"dt":"2015-01-01 00:00:00.000","ErrorGroupType":"Services","ErrorGroup":"Namechecking","ErrorType":"failed","SeverityClass":3,"TotalCount":1,"ErrorCount":10},
+{"dt":"2015-01-01 00:00:00.000","ErrorGroupType":"Services","ErrorGroup":"online__OPE_CREDIT","ErrorType":"processing_failed","SeverityClass":3,"TotalCount":3,"ErrorCount":15},
+{"dt":"2015-01-01 00:00:00.000","ErrorGroupType":"Services","ErrorGroup":"online__OPE_CREDIT","ErrorType":"processing_failed_soap  ","SeverityClass":3,"TotalCount":3,"ErrorCount":10},
+{"dt":"2015-01-01 00:00:00.000","ErrorGroupType":"Services","ErrorGroup":"TXM","ErrorType":"test_faield","SeverityClass":3,"TotalCount":281,"ErrorCount":20}]

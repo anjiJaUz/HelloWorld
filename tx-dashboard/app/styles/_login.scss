@@ -1,0 +1,28 @@
+.page-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding-top: 100px;
+
+  .uib-dropdown-menu
+  {
+    width: 100%;
+  }
+}
+
+.m-btn-dropdown-100 {
+  width: 100%;
+  position: relative;
+  .btn {
+    width: 95%;
+  }
+  .btn + .btn.dropdown-toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 8;
+    width: auto;
+  }
+}

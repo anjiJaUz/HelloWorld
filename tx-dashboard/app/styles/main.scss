@@ -1,0 +1,89 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+// bower:scss
+@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+$white: #fff;
+$gray: #8f919d;
+$gray-light: #f7f7f7;
+$blue-dark: #1d2939;
+
+@import "mixin";
+@import "login";
+@import "navbar";
+@import "basemenu";
+@import "monitoring-menu";
+
+
+@include screen-desktop {
+  .hidden-desktop {
+    display: none;
+  }
+}
+
+@include pad();
+@include mar();
+
+.figure {
+  .figure__caption {
+    padding: 10px;
+    text-align: center;
+  }
+}
+
+.form-inline {
+  .form-group {
+    margin-right: $grid-gutter-width /2;
+  }
+}
+
+.checkbox .checkbox {
+  padding-left: $grid-gutter-width /2;
+}
+.m-col-by-center {
+  display: flex;
+  align-items: center;
+}
+
+.point {
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 1em;
+  width: .7em;
+  height: .7em;
+}
+
+.version {
+  position: absolute;
+//  width: 100px;
+  text-align: center;
+  bottom: 15px;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+/* charts */
+circle,
+path
+{
+  cursor: pointer;
+}
+
+circle
+{
+  fill: none;
+  pointer-events: all;
+}
+
+#tooltip
+{
+  position: absolute;
+  z-index: 10;
+  background-color: white;
+  padding: 3px 5px;
+}

@@ -1,0 +1,34 @@
+<div class="modal-header">
+  <button type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+          ng-click="cancel()"><span aria-hidden="true">&times;</span></button>
+  <h4 class="modal-title" id="myModalLabel">Fast Fix</h4>
+</div>
+<div class="modal-body">
+  <form action="">
+    <div class="form-group">
+      <label>Fix comment</label>
+      <input type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label>Fix field</label>
+      <input type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label>Values</label>
+      <select multiple class="form-control">
+        <option>val 1</option>
+        <option>val 2</option>
+        <option>val 3</option>
+      </select>
+    </div>
+    <div class="checkbox">
+      <label><input type="checkbox"/> Add quotes</label>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-info" data-dismiss="modal" ng-click="ok()">Fix</button>
+</div>
