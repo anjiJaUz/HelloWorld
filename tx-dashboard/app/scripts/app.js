@@ -24,6 +24,7 @@ angular
 	    return $sce.trustAsHtml(htmlCode);
 	  };
 	}])
+
   //used by xslt
   .directive('compileTemplate', function($compile, $parse){
 	    return {
